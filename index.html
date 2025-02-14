@@ -1,28 +1,199 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
-            body
-            {
-                background-color:#6eb6ff
-            }
-            .text
-            {
-                color:greenyellow
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Hello World</h1>
-        <p class="text">你可以下载作者的MsgTest</p>
-        <div>
-            <a href="/MsgTest.exe">下载</a>
-            <a href="/MsgTest.py">Python文件下载</a>
-        </div>
-        <div>
-            <a href="/Communication.ico">Communication</a>
-            <a href="/Console.ico">Console</a>
-            <a href="/qq.ico">qq</a>
-        </div>
-    </body>
+	<head>
+		<title>Hello Communication</title>
+		<meta name="viewport" content="width=device-width">
+		<meta charset="utf-8">
+		<style type="text/css">
+			body
+			{
+				overflow: auto;
+				background-color: white;
+				margin: 0;
+				height: 100%;
+				width: 100%;        
+			}
+			#center
+			{
+				text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			#fullscreen
+			{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 100%;
+				z-index: 65535;
+			}
+			.mainmenu
+			{
+				color: gray;
+				font-size: 20px;
+				margin-left: 6.5%;
+				margin-right: 6.5%;
+				text-decoration: none;
+				z-index: 1;
+			}
+			.mainmenu:hover
+			{
+				color: white;
+			}
+			.button
+			{
+				background-color: black;
+				color: gray;
+				font-size: 18.75px;
+				text-decoration: none;
+				margin-left: 5%;
+				margin-right: 5%;
+				border-radius: 20px;
+				height: 30px;
+				width: 180px;
+			}
+			.button:hover
+			{
+				color: white;
+			}
+			#topdiv
+			{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: black;
+				width: 100%;
+				height: 10%;
+			}
+			#items
+			{
+				text-decoration: none;
+				color: #00bfff8f;
+			}
+			#items:hover
+			{
+				color: #00bfff;
+			}
+			.cursor
+			{
+				width: 18px;
+				height: 18px;
+			}
+			.active
+			{
+				transform: scale(.5);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="fullscreen" style="background-color: black;color: white;">Hello!</div>
+		<div id="topdiv" style="height: 60px;">
+			<a href="/"><img src="./static/Communication.ico" style="width: 50px;height: 50px;"></a>
+			<a class="mainmenu" href="/" style="margin-left: 2%; margin-right: 0%;">Hello Communication</a>
+			<a class="mainmenu" href="./aboutus.html">About us</a>
+			<a class="mainmenu" target="_blank" href="https://oscarmyh.us.kg/FriendList/">Friend List</a>
+			<a class="mainmenu" target="_blank" href="https://oscarmyh.us.kg/Download/">Download</a>
+			<a class="mainmenu" target="_blank" href="https://oscarmyh.us.kg/MC/">MC</a>
+		</div>
+		<div id="center" style="display: block;">
+			<h1>Welcome to Hello Communication</h1>
+			<p>This is a static website for Hello Communication, for more information please switch to oscarmyh.us.kg.</p>
+			<p><a id="items" target="_blank" href="https://oscarmyh.us.kg">Hello Communication</a></p>
+			<p><a id="items" target="_blank" href="https://hmcl.huangyuhui.net/">HMCL Official Site</a></p>
+			<p><a id="items" target="_blank" href="https://myhldh.lanzouu.com/b00uydw85e">MC Online Mode Tools (pwd:1111)</a></p>
+            <p><a id="items" target="_blank" href="https://myhldh.lanzouu.com/iZVS62n9y8if">VideoParser (pwd:1111)</a></p>
+			<p><a id="items" target="_blank" href="https://myhldh.lanzouu.com/i3PdJ28emxlg">Zerotier One</a></p>
+            <p><a id="items" target="_blank" href="https://myhldh.lanzouu.com/ifqVS28j32gb">Tailscale</a></p>
+			<p><a id="items" target="_blank" href="https://snapany.com/zh">BiliBili Downloader</a></p>
+			<p><a id="items" target="_blank" href="https://www.alltoall.net/">Convertor1</a></p>
+			<p><a id="items" target="_blank" href="https://www.filezigzag.com">Convertor2</a></p>
+			<p><a id="items" target="_blank" href="https://cloudconvert.com/">Convertor3</a></p>
+			<p><a id="items" target="_blank" href="https://convertio.co/zh/">Convertor4</a></p>
+			<p><a id="items" target="_blank" href="https://chatgptplus.cn/">Free GPT</a></p>
+		</div>
+		<div id="cursorbg" class="cursor" style="background: black; border-radius: 25px; opacity: .25; z-index: 0; position: absolute; transition: 0.2s ease-in-out; transition-property: opacity, background, transform; display: none; top: -20px; left: -20px;"></div>
+		<style id="cursor">
+			* {
+				cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='10px' height='10px'><circle cx='4' cy='4' r='4' fill='black' opacity='.85' /></svg>") 4 4,
+				auto !important
+			}
+		</style>
+		<script>
+			document.onmouseover=function(event)
+			{
+				var curbg=document.getElementById("cursorbg");
+				curbg.style.display="block";
+			}
+			document.onmouseout=function(event)
+			{
+				var curbg=document.getElementById("cursorbg");
+				curbg.style.display="none";
+			}
+			document.onmousemove=function(event)
+			{
+				var y=event.clientY;
+				var cur=document.getElementById("cursor");
+				var curbg=document.getElementById("cursorbg");
+				curbg.style.left=event.clientX-8+'px';
+				curbg.style.top=event.clientY-8+'px';
+				if(y>60)
+				{
+					cur.innerHTML="* {cursor: url(\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='10px' height='10px'><circle cx='4' cy='4' r='4' fill='black' opacity='.85' /></svg>\") 4 4, auto !important}";
+					curbg.style.background="black";
+					curbg.style.zIndex=-1;
+				}
+				else
+				{
+					cur.innerHTML="* {cursor: url(\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='10px' height='10px'><circle cx='4' cy='4' r='4' fill='white' opacity='.85' /></svg>\") 4 4, auto !important}";
+					curbg.style.background="white";
+					curbg.style.zIndex=0;
+				}
+			}
+			document.addEventListener('mousedown',function(event)
+			{
+				var curbg=document.getElementById('cursorbg');
+				curbg.className="cursor active";
+			});
+			document.addEventListener('mouseup',function(event)
+			{
+				var curbg=document.getElementById('cursorbg');
+				curbg.className="cursor";
+			});
+			document.addEventListener('contextmenu',function(event)
+			{
+				event.preventDefault();
+			});
+		</script>
+		<script>
+			function disappear(num,time,size,now,p)
+			{
+				if(now>num)
+				{
+					p.style.display="none";
+					return;
+				}
+				p.style.opacity=(1-now/num).toString();
+				var fs=p.style.fontSize;
+				p.style.fontSize=(Number(fs.substr(0,fs.length-2))+size/num).toString().concat("px");
+				setTimeout(disappear,time/num,num,time,size,now+1,p);
+			}
+			var p=document.getElementById("fullscreen");
+			p.style.fontSize="30px";
+			p.style.opacity="1";
+			setTimeout(disappear,250,100,1500,50,1,p);
+		</script>
+		<script>
+			var body=document.getElementsByTagName('body')[0]
+			body.style.minWidth=(window.screen.width*0.86144).toString().concat('px')
+		</script>
+        <script>
+            var pro=window.location.protocol,host=window.location.host,path=window.location.pathname,param=window.location.search,hash=window.location.hash;
+            if(pro=="http:")window.location.replace("https://"+host+path+param+hash);
+        </script>
+	</body>
 </html>

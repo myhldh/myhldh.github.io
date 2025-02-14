@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello Communication</title>
+		<meta name="viewport" content="width=device-width">
+		<meta charset="utf-8">
+		<style type="text/css">
+			body
+			{
+				background-color: white;
+				margin: 0;
+				height: 100%;
+				width: 100%;        
+			}
+			#center
+			{
+				text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			#fullscreen
+			{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 100%;
+				z-index: 65535;
+			}
+			.mainmenu
+			{
+				color: gray;
+				font-size: 20px;
+				margin-left: 6.5%;
+				margin-right: 6.5%;
+				text-decoration: none;
+				z-index: 1;
+			}
+			.mainmenu:hover
+			{
+				color: white;
+			}
+			.button
+			{
+				background-color: black;
+				color: gray;
+				font-size: 18.75px;
+				text-decoration: none;
+				margin-left: 5%;
+				margin-right: 5%;
+				border-radius: 20px;
+				height: 30px;
+				width: 180px;
+			}
+			.button:hover
+			{
+				color: white;
+			}
+			#text
+			{
+				color: #555;
+				font-size: large;
+			}
+			#text:hover
+			{
+				color: black;
+			}
+			#content
+			{
+				display: block;
+				text-align: left;
+				width: 60%;
+				margin-left: 20%;
+				margin-right: 20%;
+				margin-bottom: 5%;
+			}
+			#topdiv
+			{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: black;
+				width: 100%;
+				height: 10%;
+			}
+			#items
+			{
+				text-decoration: none;
+				color: #00bfff8f;
+			}
+			#items:hover
+			{
+				color: #00bfff;
+			}
+			.cursor
+			{
+				width: 18px;
+				height: 18px;
+			}
+			.active
+			{
+				transform: scale(.5);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="topdiv" style="height: 60px;">
+			<a href="/"><img src="./static/Communication.ico" style="width: 50px;height: 50px;"></a>
+			<a class="mainmenu" href="/" style="margin-left: 2%; margin-right: 0%;">Hello Communication</a>
+			<a class="mainmenu" href="./aboutus.html">About us</a>
+			<a class="mainmenu" target="_blank" href="https://oscarmyh.us.kg/FriendList/">Friend List</a>
+			<a class="mainmenu" target="_blank" href="https://oscarmyh.us.kg/Download/">Download</a>
+			<a class="mainmenu" target="_blank" href="https://oscarmyh.us.kg/MC/">MC</a>
+		</div>
+        <div id="center" style="display: block;">
+            <p><h1>LDH & Jerry-Hello & XSL</h1></p>
+            <div id="content">
+				<h2>LDH</h2>
+				<p id="text">A student from Shanghai who is fond of coding. (particularly Python and C++)</p>
+				<p id="text">
+					CSDN:&nbsp;
+					<a id="items" target="_blank" href="https://blog.csdn.net/Oscar_Myh_39">https://blog.csdn.net/Oscar_Myh_39</a>
+				</p>
+			</div>
+			<div id="content">
+				<h2>Jerry-Hello</h2>
+				<p id="text">A student from Shanghai who is fond of STEM and Metro<del>, and has a bad grade</del>.</p>
+				<p id="text">
+					Bilibili:&nbsp;
+					<a id="items" target="_blank" href="https://space.bilibili.com/3493094708218175">https://space.bilibili.com/3493094708218175</a>
+				</p>
+			</div>
+			<div id="content">
+				<h2>XSL</h2>
+				<p id="text">(null)</p>
+			</div>
+        </div>
+		<div id="cursorbg" class="cursor" style="background: black; border-radius: 25px; opacity: .25; z-index: 0; position: absolute; transition: 0.2s ease-in-out; transition-property: opacity, background, transform; display: none; top: -20px; left: -20px;"></div>
+		<style id="cursor">
+			* {
+				cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='10px' height='10px'><circle cx='4' cy='4' r='4' fill='black' opacity='.85' /></svg>") 4 4,
+				auto !important
+			}
+		</style>
+		<script>
+			document.onmouseover=function(event)
+			{
+				var curbg=document.getElementById("cursorbg");
+				curbg.style.display="block";
+			}
+			document.onmouseout=function(event)
+			{
+				var curbg=document.getElementById("cursorbg");
+				curbg.style.display="none";
+			}
+			document.onmousemove=function(event)
+			{
+				var y=event.clientY;
+				var cur=document.getElementById("cursor");
+				var curbg=document.getElementById("cursorbg");
+				curbg.style.left=event.clientX-8+'px';
+				curbg.style.top=event.clientY-8+'px';
+				if(y>60)
+				{
+					cur.innerHTML="* {cursor: url(\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='10px' height='10px'><circle cx='4' cy='4' r='4' fill='black' opacity='.85' /></svg>\") 4 4, auto !important}";
+					curbg.style.background="black";
+					curbg.style.zIndex=-1;
+				}
+				else
+				{
+					cur.innerHTML="* {cursor: url(\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='10px' height='10px'><circle cx='4' cy='4' r='4' fill='white' opacity='.85' /></svg>\") 4 4, auto !important}";
+					curbg.style.background="white";
+					curbg.style.zIndex=0;
+				}
+			}
+			document.addEventListener('mousedown',function(event)
+			{
+				var curbg=document.getElementById('cursorbg');
+				curbg.className="cursor active";
+			});
+			document.addEventListener('mouseup',function(event)
+			{
+				var curbg=document.getElementById('cursorbg');
+				curbg.className="cursor";
+			});
+			document.addEventListener('contextmenu',function(event)
+			{
+				event.preventDefault();
+			});
+		</script>
+		<script>
+			var body=document.getElementsByTagName('body')[0]
+			body.style.minWidth=(window.screen.width*0.86144).toString().concat('px')
+		</script>
+        <script>
+            var pro=window.location.protocol,host=window.location.host,path=window.location.pathname,param=window.location.search,hash=window.location.hash;
+            if(pro=="http:")window.location.replace("https://"+host+path+param+hash);
+        </script>
+	</body>
+</html>
